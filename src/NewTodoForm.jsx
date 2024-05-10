@@ -22,7 +22,7 @@ export function NewTodoForm() {
         autoFocus
         id="todo-input"
         ref={nameRef}
-        maxLength="45"
+        maxLength="50"
       />
       <button className="btn">Add</button>
     </form>

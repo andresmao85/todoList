@@ -18,25 +18,27 @@ export function TodoFilterForm({
         className={`accordion-header ${isExpanded ? "active" : ""}`}
         onClick={toggleAccordion}
       >
-        <span>Filter To-Do</span>
-        <div className="arrow-icon">{isExpanded ? "-" : "+"}</div>
+        <div className="accordion-title">Filter To-Do</div>
+        <div className="arrow-icon">{isExpanded ? "▲" : "▼"}</div>
       </div>
       <div className={`accordion-content ${isExpanded ? "open" : ""}`}>
         <div className="filter-form">
           <div className="filter-form-group">
-            <label htmlFor="name">Filter by:</label>
+            <label htmlFor="filter-name">Filter by:</label>
             <input
               type="text"
-              id="name"
+              id="filter-name"
+              name="filter-name"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
           </div>
-          <label>
+          <label className="hide-completed">
             <input
               type="checkbox"
               checked={hideCompleted}
               onChange={(e) => setHideCompleted(e.target.checked)}
+              id="hide-completed-checkbox"
             />
             Hide Completed
           </label>

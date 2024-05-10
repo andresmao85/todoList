@@ -82,7 +82,7 @@ function App() {
 
   return (
     <>
-      <h1>To-Do List</h1>
+      <header>To-Do List</header>
       <TodoContext.Provider
         value={{
           todos: filteredTodos,

@@ -13,21 +13,31 @@ export function TodoModal({ isOpen, onClose, todo }) {
     onClose()
   }
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault()
+      handleSubmit(e)
+    }
+  }
+
   return (
     <div className={`modal ${isOpen ? "open" : ""}`}>
       <div className="modal-content">
-        <span className="close" onClick={onClose}>
-          &times;
-        </span>
-        <form onSubmit={handleSubmit} className="edit-form">
-          <input
-            type="text"
+        <form onSubmit={handleSubmit} className="modal-form">
+          <span className="close" onClick={onClose}>
+            X
+          </span>
+          <textarea
+            id="modal-input"
             autoFocus
             defaultValue={todo.name}
             ref={nameRef}
-            maxLength="45"
+            maxLength="50"
+            onKeyDown={handleKeyDown} // Add this line
           />
-          <button className="btn">Save</button>
+          <button className="btn" data-modal-save-button>
+            Save
+          </button>
         </form>
       </div>
     </div>
